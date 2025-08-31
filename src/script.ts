@@ -1,9 +1,31 @@
 const input = document.getElementById("input") as HTMLInputElement;
 
 function setInput(char: number | string): void {
-  input.value += char;
-  const mathRegex = /[0-9]+/;
-  if (!mathRegex.test(input.value)) {
-    input.value = input.value.slice(0, -1);
+  console.log("Recebi:" + char);
+  const allowedChars = /^[0-9+\-*/^().%!π√]+$/;
+  const mathStr = input.value.toString() + char.toString();
+
+  console.log("String interira possível: " + mathStr);
+  if (allowedChars.test(mathStr)) {
+    input.value += char;
+    console.log("Nova string: " + input.value);
   }
+}
+
+input.addEventListener("keydown", (e) => {
+  const key = e.key;
+
+  const allowedKeys = /^[0-9+\-*/^().%!π√=]$/;
+
+  if (allowedKeys.test(key)) {
+    e.preventDefault();
+    setInput(key);
+  } else {
+    e.preventDefault();
+  }
+});
+
+function equal() {
+  // Replace eval*
+  input.value = eval(input.value);
 }
