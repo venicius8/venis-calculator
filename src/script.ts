@@ -1,3 +1,5 @@
+import { evaluate } from "mathjs";
+
 const input = document.getElementById("input") as HTMLInputElement;
 
 function setInput(char: number | string): void {
@@ -23,6 +25,5 @@ input.addEventListener("keydown", (e) => {
 });
 
 function equal() {
-  // Replace eval*
-  input.value = eval(input.value);
+  input.value = evaluate(input.value);
 }

@@ -14,7 +14,7 @@
       </div>
       <div class="keyboard">
         <div class="row1">
-          <button class="del" onclick="clearInput('C')">C</button>
+          <button class="del" onclick="clearInput()">C</button>
           <button class="del" onclick="del()">&#8592;</button>
           <button>%</button>
           <button>&pi;</button>
@@ -39,12 +39,12 @@
           <button class="numeric" onclick="setInput(2)">2</button>
           <button class="numeric" onclick="setInput(3)">3</button>
           <button onclick="setInput('-')">-</button>
-          <button class="equal">(=)</button>
+          <button class="equal" onclick="equal()">(=)</button>
         </div>
         <div class="row5">
           <button>.</button>
           <button class="numeric" onclick="setInput(0)">0</button>
-          <button>( )</button>
+          <button onabort="setInput(')')">( )</button>
           <button onclick="setInput('+')">+</button>
           <button class="equal" onclick="equal()">=</button>
         </div>
@@ -52,5 +52,5 @@
     </div>
   </body>
 
-  <script src="../dist/script.js"></script>
+  <script type="module" src="../dist/script.js"></script>
 </html>
